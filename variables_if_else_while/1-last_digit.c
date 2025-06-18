@@ -2,7 +2,7 @@
 #include <time.h>
 #include <stdio.h>
 /**
- * main - Code to determine if the last number is greater than 5, equal to zero and less than 6.
+ * main - Code to determine if the last number is greater, equal or less.
  *
  *
  * Return: Always 0 (Success)
