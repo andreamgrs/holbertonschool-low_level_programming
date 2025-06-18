@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
-/*
+/**
  * main - Code to determine if the number is greater, equal or less than 0
  *
  * Return: Always 0 (Success)
