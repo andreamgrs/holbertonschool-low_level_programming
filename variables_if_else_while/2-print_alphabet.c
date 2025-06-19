@@ -9,6 +9,7 @@ int main(void)
 {
 	int i;
 	char alph[] = "abcdefghijklmnopqrstuvwxyz";
+
 	for (i = 0; i < 26; i++)
 	{
 		putchar(alph[i]);
