@@ -1,9 +1,9 @@
 #include "main.h"
 /**
- * _islower - return 1 if the letter is lowercase.
+ * _islower - read return.
  *
  *
- * Return 0 if c is not lowercase.
+ * Return 1 if c is lowercase, return 0 otherwise.
  */
 int _islower(int c)
 {
