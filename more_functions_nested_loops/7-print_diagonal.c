@@ -8,12 +8,12 @@
  */
 void print_diagonal(int n)
 {
-	int i;
-	int j;
+	int current_line_num;
+	int num_spaces;
 
-	for (i = 0; i < n; i++)
+	for (current_line_num = 0; current_line_num < n; current_line_num++)
 	{
-		for (j = 0; j < i; j++)
+		for (num_spaces = 0; num_spaces < current_line_num; num_spaces++)
 		{
 			_putchar(' ');
 		}
