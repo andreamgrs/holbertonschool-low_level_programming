@@ -12,7 +12,7 @@ int main(void)
 	int mult_three;
 	int mult_five;
 
-	for (current_num = 1; current_num <= 100; current_num++)
+	for (current_num = 1; current_num < 100; current_num++)
 	{
 		mult_three = current_num % 3;
 		mult_five = current_num % 5;
@@ -34,5 +34,6 @@ int main(void)
 			printf("%d ", current_num);
 		}
 	}
+	printf("Buzz\n");
 	return (0);
 }
