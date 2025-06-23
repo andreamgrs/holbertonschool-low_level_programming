@@ -15,10 +15,9 @@ void print_triangle(int size)
 	{
 		for (more_squares = 0; more_squares < size; more_squares++)
 		{
-			_putchar(' ');
+			_putchar(35);
 		}
-
-		_putchar(35);
+		/*_putchar(35);*/
 		_putchar('\n');
 	}
 	if (size <= 0)
