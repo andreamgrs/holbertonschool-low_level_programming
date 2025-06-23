@@ -34,6 +34,5 @@ int main(void)
 			printf("%d ", current_num);
 		}
 	}
-	printf("\n");
 	return (0);
 }
