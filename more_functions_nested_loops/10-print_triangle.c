@@ -8,17 +8,26 @@
  */
 void print_triangle(int size)
 {
-	int current_num;
+	int current_num = 0;
 	int more_squares;
+	int space;
 
-	for (current_num = 0; current_num < size; current_num++)
+	while (current_num < size)
 	{
-		for (more_squares = 0; more_squares < size; more_squares++)
+		space = 0;
+		while (space < size - current_num - 1)
 		{
-			_putchar(35);
+			_putchar(' ');
+			space = space + 1;
 		}
-		/*_putchar(35);*/
-		_putchar('\n');
+		more_squares = 0;
+		while (more_squares <= current_num)
+		{	
+			_putchar(35);
+		more_squares = more_squares + 1;	
+		}
+	_putchar('\n');
+	current_num = current_num + 1;
 	}
 	if (size <= 0)
 	{
