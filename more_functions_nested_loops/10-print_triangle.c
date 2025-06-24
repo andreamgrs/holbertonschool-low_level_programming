@@ -22,9 +22,9 @@ void print_triangle(int size)
 		}
 		more_squares = 0;
 		while (more_squares <= current_num)
-		{	
+		{
 			_putchar(35);
-		more_squares = more_squares + 1;	
+		more_squares = more_squares + 1;
 		}
 	_putchar('\n');
 	current_num = current_num + 1;
