@@ -1,10 +1,10 @@
 #include "main.h"
 /**
- * puts2 - prints every character of a string.
+ * puts2 - prints one character of 2 of a string.
  *
  * @str: pointer that points to a string.
  *
- * Return: prints character.
+ * Return: no return because is void.
  */
 void puts2(char *str)
 {
