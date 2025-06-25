@@ -8,9 +8,9 @@
  */
 void _puts(char *str)
 {
-	int cont;
+	int cont = 0;
 
-	while (str[cont] >= 0)
+	while (str[cont] != 0)
 	{
 		_putchar(str[cont]);
 		cont = cont + 1;
