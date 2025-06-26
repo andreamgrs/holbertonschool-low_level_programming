@@ -18,27 +18,25 @@ int _atoi(char *s)
 	cont = 0;
 	while (s[cont] != '\0')
 	{
-		digit = s[cont];	
-
+		digit = s[cont];
 		if (digit >= 48 && digit <= 57 && stop_after_num == 0)
 		{
 			digit_num = 1;
 			final_digit = final_digit * 10 + (digit - 48);
 		}
-		else if (digit == '-')
-		{
-			sign = sign * -1;
-
-		}
-		else 
+		else
 		{
 			if (digit_num == 1)
 			{
 				stop_after_num = 1;
 			}
 		}
-		
-		cont = cont + 1;
+
+		if (digit_num == 0 && digit == '-')
+		{
+			sign = sign * -1;
+		}
+	cont = cont + 1;
 	}
 
 	return (final_digit * sign);
