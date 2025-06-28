@@ -20,9 +20,9 @@ char *cap_string(char *s)
 
 	while (s[cont] != '\0')
 	{
-		aux = cont + 1;
 		for (cont_array = 0; cont_array < 13; cont_array++)
 		{
+			aux = cont + 1;
 			if (s[aux] == array[cont_array])
 			{
 				if (s[aux] >= 'a' && s[aux] <= 'z')
