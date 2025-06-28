@@ -23,7 +23,7 @@ char *cap_string(char *s)
 		for (cont_array = 0; cont_array < 13; cont_array++)
 		{
 			if (s[cont] == array[cont_array])
-			{	
+			{
 				aux = cont + 1;
 				if (s[aux] >= 'a' && s[aux] <= 'z')
 				{
