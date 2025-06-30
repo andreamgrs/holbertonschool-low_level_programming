@@ -2,7 +2,7 @@
 /**
  * _memset - function that fills memory with a constant byte.
  *
- * @s: var that point where, is the array. 
+ * @s: var that point where, is the array.
  * @b: contstant byte that we use to fill.
  * @n: first n bytes of the memory area that we will fill.
  *
