@@ -5,7 +5,7 @@
  * @s: string.
  * @accept: characters to be accepted in the string
  *
- * Return: number of bytes in the initial segment of s which consist only of bytes from accept.
+ * Return: number of bytes until the accept appears.
  */
 unsigned int _strspn(char *s, char *accept)
 {
