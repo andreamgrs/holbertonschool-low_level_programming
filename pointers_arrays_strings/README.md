@@ -1,1 +1,1 @@
-In this folder we are going to learn more pointers, arrays and strings!
+In this folder we are going to learn more pointers to pointers, multidimensional arrays and strings!
