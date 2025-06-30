@@ -25,5 +25,5 @@ char *_strpbrk(char *s, char *accept)
 		}
 		cont = cont + 1;
 	}
-	return (0);	
+	return (0);
 }
