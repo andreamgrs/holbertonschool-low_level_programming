@@ -11,14 +11,15 @@
  */
 void print_diagsums(int *a, int size)
 {
-	int row, col;
+	int cont;
+	int sum = 0;
+	int sum2 = 0;
 
-	for (row = 0; row < size; row++)
+	for (cont = 0; cont < size; cont++)
 	{
-		for (col = 0; col < size; col++)
-		{
-			printf("%d", a[row][col]);
-		}
-		printf("\n");
-	}
+		sum = sum + *(a + cont * size + cont);
+		sum2 = sum2 + *(a + cont * size + (size - 1 - cont));
+	}	
+	printf("%d, %d\n", sum, sum2);
+	
 }
