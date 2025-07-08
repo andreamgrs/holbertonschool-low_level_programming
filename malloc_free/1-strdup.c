@@ -15,21 +15,24 @@ char *_strdup(char *str)
 	int cont;
 	int cont2;
 
-	p = malloc(sizeof(char));
-
-	if (p == NULL)
-	{
-		return (NULL);
-	}
 	if (str == NULL)
 	{
 		return (NULL);
 	}
+
 	for (cont = 0; str[cont] != '\0'; cont++)
 	{
-		for (cont2 = 0; cont2 <= cont; cont2++)
+		p = malloc((cont + 1) * sizeof(char));
+		if (p == NULL)
 		{
-			p[cont2] = str[cont2];
+			return (NULL);
+		}
+		else
+		{
+			for (cont2 = 0; cont2 <= (cont + 1); cont2++)
+			{
+				p[cont2] = str[cont2];
+			}
 		}
 	}
 	return (p);
