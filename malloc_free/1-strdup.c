@@ -21,7 +21,7 @@ char *_strdup(char *str)
 	}
 
 	cont = 0;
-	while (str[cont] != '\n')
+	while (str[cont] != '\0')
 	{
 		cont = cont + 1;
 	}
