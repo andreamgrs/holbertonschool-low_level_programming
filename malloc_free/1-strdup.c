@@ -20,19 +20,22 @@ char *_strdup(char *str)
 		return (NULL);
 	}
 
-	for (cont = 0; str[cont] != '\0'; cont++)
+	cont = 0;
+	while (str[cont] != '\n')
 	{
-		p = malloc((cont + 1) * sizeof(char));
-		if (p == NULL)
+		cont = cont + 1;
+	}
+	p = malloc((cont + 1) * sizeof(char));
+
+	if (p == NULL)
+	{
+		return (NULL);
+	}
+	else
+	{
+		for (cont2 = 0; cont2 < (cont + 1); cont2++)
 		{
-			return (NULL);
-		}
-		else
-		{
-			for (cont2 = 0; cont2 < (cont + 1); cont2++)
-			{
-				p[cont2] = str[cont2];
-			}
+			p[cont2] = str[cont2];
 		}
 	}
 	return (p);
