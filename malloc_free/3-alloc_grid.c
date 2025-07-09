@@ -15,6 +15,7 @@ int **alloc_grid(int width, int height)
 	int cont;
 	int row;
 	int column;
+	int fre;
 
 	if (width <= 0 || height <= 0)
 	{
@@ -33,6 +34,11 @@ int **alloc_grid(int width, int height)
 		p[cont] = malloc(height * sizeof(int));
 		if (p[cont] == NULL)
 		{
+			for (fre = cont - 1; fre >= 0; fre--)
+			{
+				free(p[cont]);
+			}
+			free(p);
 			return (NULL);
 		}
 		cont = cont + 1;
