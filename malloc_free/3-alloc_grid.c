@@ -21,14 +21,14 @@ int **alloc_grid(int width, int height)
 		return (NULL);
 	}
 
-	p = malloc(height * sizeof(int *));
+	p = malloc(width * sizeof(int *));
 
 	if (p == NULL)
 	{
 		return (NULL);
 	}
 	cont = 0;
-	while (cont <= width)
+	while (cont < width)
 	{
 		p[cont] = malloc(height * sizeof(int));
 		cont = cont + 1;
