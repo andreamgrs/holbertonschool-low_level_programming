@@ -19,7 +19,7 @@ int *array_range(int min, int max)
 	}
 	sum = (max - min) + 1;
 
-	p = malloc(sum * sizeof(int));
+	p = malloc(sum * sizeof(*p));
 
 	if (p == NULL)
 	{
