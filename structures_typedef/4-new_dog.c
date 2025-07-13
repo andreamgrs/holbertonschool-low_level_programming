@@ -1,15 +1,6 @@
 #include "dog.h"
 #include <stdlib.h>
 /**
- * dog_t *new_dog - function that creates a new dog.
- *
- * @name: name of dog.
- * @age: age of dog.
- * @owner: owner of dog
- *
- * Return: pointer to a new dog_t.
- */
-/**
  * copy_string - function that copy a string to a new space in mem.
  *
  * @str: string to be copy.
@@ -49,6 +40,15 @@ char *copy_string(char *str)
 	}
 	return (p);
 }
+/**
+ * dog_t *new_dog - function that creates a new dog.
+ *
+ * @name: name of dog.
+ * @age: age of dog.
+ * @owner: owner of dog
+ *
+ * Return: pointer to a new dog_t.
+ */
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	char *copy_name, *copy_owner;
