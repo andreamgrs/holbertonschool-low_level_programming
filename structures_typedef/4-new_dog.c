@@ -9,6 +9,15 @@
  *
  * Return: pointer to a new dog_t.
  */
+/**
+ * copy_string - function that copy a string to a new space in mem.
+ *
+ * @str: string to be copy.
+ *
+ * Return: pointer to a newly
+ * allocated space in memory, which contains a copy of the string
+ * given as a parameter.
+ */
 char *copy_string(char *str)
 {
 	char *p;
