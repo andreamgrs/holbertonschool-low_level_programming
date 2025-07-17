@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(99);
 	}
-	
+
 	result = operation(a, b);
 
 	printf("%d\n", result);
