@@ -15,14 +15,14 @@ int main(int argc, char *argv[])
 	int result;
 	int (*operation)(int, int);
 
-	a = atoi(argv[1]);
-	b = atoi(argv[3]);
-
 	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
 	}
+
+	a = atoi(argv[1]);
+	b = atoi(argv[3]);
 
 	if (argv[2][1] != '\0')
 	{
@@ -37,6 +37,7 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(99);
 	}
+	
 	result = operation(a, b);
 
 	printf("%d\n", result);
