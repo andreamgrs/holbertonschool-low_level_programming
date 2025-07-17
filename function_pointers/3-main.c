@@ -1,4 +1,4 @@
-#include "main.h"
+#include "3-calc.h"
 #include <stdlib.h>
 #include <stdio.h>
 /**
@@ -12,22 +12,19 @@
 int main(int argc, char *argv[])
 {
 	int a, b;
-	char op;
 	int result;
 	int (*operation)(int, int);
 
 	a = atoi(argv[1]);
 	b = atoi(argv[3]);
-	op = argv[2];
 
-	if (argc < 4)
+	if (argc < 4 || argc > 4)
 	{
 		printf("Error\n");
 		exit(98);
-		return (1);
 	}
 
-	operation = get_op_func(op);
+	operation = get_op_func(argv[2]);
 	result = operation(a, b);
 
 	printf("%d\n", result);
