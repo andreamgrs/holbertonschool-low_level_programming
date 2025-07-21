@@ -7,6 +7,7 @@
  * c: char, i: int, f: float, s: char *
  * @print: The function associated, which function to print.
  */
+#include <stdarg.h>
 typedef struct op
 {
     char *op;
