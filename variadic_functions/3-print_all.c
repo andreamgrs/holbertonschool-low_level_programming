@@ -24,7 +24,7 @@ void print_char(va_list arg)
 void print_int(va_list arg)
 {
 	int i;
-	
+
 	i = va_arg(arg, int);
 	printf("%d", i);
 }
@@ -37,7 +37,7 @@ void print_int(va_list arg)
 void print_float(va_list arg)
 {
 	float f;
-	
+
 	f = va_arg(arg, double);
 	printf("%f", f);
 }
@@ -50,7 +50,7 @@ void print_float(va_list arg)
 void print_string(va_list arg)
 {
 	char *s;
-	
+
 	s = va_arg(arg, char *);
 
 	if (s == NULL)
@@ -82,7 +82,6 @@ void print_all(const char * const format, ...)
 		{"s", print_string},
 		{NULL, NULL}
 	};
-	
 	va_start(args, format);
 
 	cont_format = 0;
