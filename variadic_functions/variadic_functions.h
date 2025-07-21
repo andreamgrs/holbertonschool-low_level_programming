@@ -1,13 +1,13 @@
 #ifndef VARIADIC_FUNCTIONS_H
 #define VARIADIC_FUNCTIONS_H
+#include <stdarg.h>
 /**
- * op - Struct option to print
+ * struct op - Struct option to print
  *
- * @op - option for the data type.
+ * @op: option for the data type.
  * c: char, i: int, f: float, s: char *
  * @print: The function associated, which function to print.
  */
-#include <stdarg.h>
 typedef struct op
 {
 	char *op;
