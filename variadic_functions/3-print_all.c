@@ -54,10 +54,7 @@ void print_string(va_list arg)
 		printf("(nil)");
 	}
 	
-	if (s != NULL)
-	{
-        	printf("%s", s);
-	}
+        printf("%s", s);
 }
 /**
  * print_all - function that prints anything.
