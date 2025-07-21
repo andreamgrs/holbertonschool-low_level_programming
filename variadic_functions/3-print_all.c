@@ -12,7 +12,7 @@ void print_char(va_list arg)
 	char c;
 
 	c = va_arg(arg, int);
-	printf("%c", c);
+	printf("%c, ", c);
 }
 
 /**
@@ -24,7 +24,7 @@ void print_int(va_list arg)
         int i;
 
         i = va_arg(arg, int);
-        printf("%d", i);
+        printf("%d, ", i);
 }
 
 /**
@@ -36,7 +36,7 @@ void print_float(va_list arg)
         float f;
 
         f = va_arg(arg, double);
-        printf("%f", f);
+        printf("%f, ", f);
 }
 
 /**
@@ -53,7 +53,7 @@ void print_string(va_list arg)
 	{
 		printf("(nil)");
 	}
-        printf("%s", s);
+        printf("%s, ", s);
 }
 /**
  * print_all - function that prints anything.
@@ -66,7 +66,7 @@ void print_string(va_list arg)
  */
 void print_all(const char * const format, ...)
 {
-	unsigned int cont_list;
+	unsigned int cont_list, cont_format;
 	va_list args;
 
 	op_list ops[] = {
@@ -79,14 +79,20 @@ void print_all(const char * const format, ...)
 	
 	va_start(args, format);
 
-	cont_list = 0;
-	while (ops[cont_list].op != NULL)
+	cont_format = 0;
+	while (format != NULL && format[cont_format] != '\0')
 	{
-		if (format[0] == ops[cont_list].op[0])
+		cont_list = 0;
+		while (ops[cont_list].op != NULL)
 		{
-			ops[cont_list].print(args);
+			if (format[cont_format] == ops[cont_list].op[0])
+			{
+				ops[cont_list].print(args);
+				break;
+			}
+			cont_list = cont_list + 1;
 		}
-		cont_list = cont_list + 1;
+		cont_format = cont_format + 1;
 	}
 	printf("\n");
 	va_end(args);
