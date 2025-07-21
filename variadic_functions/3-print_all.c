@@ -53,7 +53,10 @@ void print_string(va_list arg)
 	{
 		printf("(nil)");
 	}
-        printf("%s", s);
+	else
+	{
+        	printf("%s", s);
+	}
 }
 /**
  * print_all - function that prints anything.
