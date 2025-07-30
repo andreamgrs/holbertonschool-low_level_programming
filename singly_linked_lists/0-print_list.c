@@ -21,9 +21,9 @@ size_t print_list(const list_t *h)
 		else
 		{
 			printf("[%d] %s\n", current->len, current->str);
-			num_nodes = num_nodes + 1;
-			current = current->next;
 		}
+		num_nodes = num_nodes + 1;
+		current = current->next;
 	}
 
 	return (num_nodes);
