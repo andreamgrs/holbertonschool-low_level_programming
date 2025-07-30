@@ -3,7 +3,7 @@
 /**
  * print_list - function that prints all the elements of a list_t list.
  *
- * @list_t *h: pointer h that points to the struct list_h.
+ * @h: pointer h that points to the struct list_h.
  *
  * Return: number od nodes.
  */
