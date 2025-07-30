@@ -1,23 +1,46 @@
-#include "lists.h"
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include "lists.h"
+
 /**
- * add_node - function that adds a new node at the beginning of a list_t list.
+ * len_str - function that gets the length of the string.
  *
- * @head: double pointer that points to the struct list_h.
- * @str: string that needs to be duplicated.
+ * @str: string.
+ *
+ * Return: length of string.
+ */
+int len_str(const char *str)
+{
+	int cont = 0;
+
+	while (str[cont] != '\0')
+	{
+		cont = cont + 1;
+	}
+	return (cont);
+}
+/**
+ * add_node - function that adds a new node at the beginning of a list.
+ *
+ * @head: points to the variable that stores the pointer to the first node.
+ * @str: string.
  *
  *
- * Return: number of nodes.
+ * Return: address of the new element, or NULL if it failed.
  */
 list_t *add_node(list_t **head, const char *str)
 {
-	size_t num_nodes = 0;
-	const list_t *current = h;
+	list_t *new_node = malloc(sizeof(list_t));
 
-	while (current != NULL)
+	if (new_node == NULL)
 	{
-		num_nodes = num_nodes + 1;
-		current = current->next;
+		return (NULL);
 	}
-	return (num_nodes);
+	new_node->str = strdup(str);
+	new_node->len = len_str(str);
+	new_node->next = *head;
+	*head = new_node;
+
+	return (new_node);
 }
