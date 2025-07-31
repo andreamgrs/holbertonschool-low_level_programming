@@ -31,15 +31,30 @@ int len_str(const char *str)
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *new_node = malloc(sizeof(list_t));
+	list_t *last_node = malloc(sizeof(list_t));
+	list_t *tmp;
 
-	if (new_node == NULL)
+	if (last_node == NULL)
 	{
 		return (NULL);
 	}
-	new_node->str = strdup(str);
-	new_node->len = len_str(str);
-	new_node->next = NULL;
 
-	return (new_node);
+	last_node->str = strdup(str);
+	last_node->len = len_str(str);
+	last_node->next = NULL;
+
+	if (*head == NULL)
+	{
+		*head = last_node;
+	}
+	else
+	{
+		tmp = *head;
+		while (tmp->next != NULL)
+		{
+			tmp = tmp->next;
+		}
+		tmp->next = last_node;
+	}
+	return (last_node);
 }
