@@ -13,16 +13,15 @@
  */
 dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 {
-	list_t *last_node = malloc(sizeof(list_t));
-	list_t *tmp;
+	dlistint_t *last_node = malloc(sizeof(dlistint_t));
+	dlistint_t *tmp;
 
 	if (last_node == NULL)
 	{
 		return (NULL);
 	}
 
-	last_node->str = strdup(str);
-	last_node->len = len_str(str);
+	last_node->n = n;
 	last_node->next = NULL;
 
 	if (*head == NULL)
@@ -37,6 +36,7 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 			tmp = tmp->next;
 		}
 		tmp->next = last_node;
+		last_node->prev = tmp;
 	}
 	return (last_node);
 }
