@@ -31,10 +31,12 @@ int len_string(char *text_content)
 int create_file(const char *filename, char *text_content)
 {
 	int fd, w;
-	
+	char *empty_str;
+
 	if (text_content == NULL)
 	{
-		return (-1);
+		empty_str = "";
+		return (*empty_str);
 	}
 	fd = open(filename, O_RDWR | O_CREAT | O_TRUNC, 0600);
 	if (fd == -1)
