@@ -35,7 +35,7 @@ int main(int cont_arg, char **av)
 		dprintf(2, "Error: Can't read from file: %s\n", av[1]);
                 exit(98);
 	}
-	if (r == 1024)
+	while (r == 1024)
 	{
 		fd2 = open(av[2], O_RDWR | O_CREAT | O_TRUNC, 0664);
 		if (fd2 == -1)
