@@ -42,11 +42,11 @@ int main(int cont_arg, char **av)
                 	exit(99);
 		}
 		w = write(fd2, buf, r);
-		if (w == -1)
-		{
-			dprintf(2, "Error: Can't write to: %s\n", av[2]);
-                	exit(99);
-		}
+	if (r != w)
+	{
+		dprintf(2, "Error: Can't write to: %s\n", av[2]);
+               	exit(99);
+	}
 	if (close(fd) == -1)
 	{
 		dprintf(2, "Error: Can't close fd: %d\n", fd);
