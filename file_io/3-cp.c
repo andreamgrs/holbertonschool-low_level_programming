@@ -35,8 +35,6 @@ int main(int cont_arg, char **av)
 		dprintf(2, "Error: Can't read from file: %s\n", av[1]);
                 exit(98);
 	}
-	while (r == 1024)
-	{
 		fd2 = open(av[2], O_RDWR | O_CREAT | O_TRUNC, 0664);
 		if (fd2 == -1)
 		{
@@ -49,7 +47,6 @@ int main(int cont_arg, char **av)
 			dprintf(2, "Error: Can't write to: %s\n", av[2]);
                 	exit(99);
 		}
-	}
 	if (close(fd) == -1)
 	{
 		dprintf(2, "Error: Can't close fd: %d\n", fd);
