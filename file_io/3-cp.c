@@ -35,17 +35,20 @@ int main(int cont_arg, char **av)
 		dprintf(2, "Error: Can't read from file: %s\n", av[1]);
                 exit(98);
 	}
-	fd2 = open(av[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
-	if (fd2 == -1)
+	if (r == 1024)
 	{
-		dprintf(2, "Error: Can't write to: %s\n", av[2]);
-                exit(99);
-	}
-	w = write(fd2, buf, r);
-	if (w == -1)
-	{
-		dprintf(2, "Error: Can't write to: %s\n", av[2]);
-                exit(99);
+		fd2 = open(av[2], O_RDWR | O_CREAT | O_TRUNC, 0664);
+		if (fd2 == -1)
+		{
+			dprintf(2, "Error: Can't write to: %s\n", av[2]);
+                	exit(99);
+		}
+		w = write(fd2, buf, r);
+		if (w == -1)
+		{
+			dprintf(2, "Error: Can't write to: %s\n", av[2]);
+                	exit(99);
+		}
 	}
 	if (close(fd) == -1)
 	{
