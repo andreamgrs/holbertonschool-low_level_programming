@@ -1,6 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * main - program that prints "$ ", wait for the user to
+ * enter a command, prints it on the next line. (getline)
+ *
+ * EOF (or Ctrl+D)
+ *
+ * Return: nothing.
+ *
+ */
 int main(void)
 {
 	char *line = NULL;
