@@ -1,25 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(int argc, char *argv[])
+int main(void)
 {
-	FILE *stream;
 	char *line = NULL;
-	size_t leng_buffer = 0;
+	size_t size = 0;
 	ssize_t read;
-	
-	stream = fopen(argv[1], "r");
-	if (stream == NULL)
-	{
-		printf("Error\n");
-	}
 
-	while ((read = getline(&line, &size, stream)) != -1) 
+	printf("$ ");
+	while ((read = getline(&line, &size, stdin)) != -1) 
 	{
-		fwrite(line, read, 1, stdout);
+		printf("%s", line);
 	}
-
 	free(line);
-	fclose(stream);
 	return (0);
 }
