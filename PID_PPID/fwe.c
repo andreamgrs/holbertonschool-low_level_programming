@@ -13,7 +13,7 @@
  */
 int main(void)
 {
-    char *argv[] = {"/ls", "-l", "/tmp", NULL};
+    char *argv[] = {"/bin/ls", "-l", "/tmp", NULL};
     pid_t child_pid;
     int status;
     int cont = 1;
