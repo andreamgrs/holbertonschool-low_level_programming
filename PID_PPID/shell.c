@@ -2,6 +2,9 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <stdlib.h>
+#include <signal.h>
+#include <string.h>
 
 /**
  * main - first version of a super simple shell that can
@@ -12,28 +15,65 @@
  *
  * Return: Always 0.
  */
+void handled_sigint(int sig)
+{
+	exit(0);
+}
+
 int main(void)
 {
 	char *line = NULL;
 	size_t size = 0;
 	ssize_t read;
+	int status, cont_argv = 0;
+	char *argv[3];
+	char *token;
 	pid_t child_pid;
+
+	signal(SIGINT, handled_sigint);
+
+	printf("my_shell$");
+	read = getline(&line, &size, stdin);
+	if (read == -1)
+	{
+		perror("Error:");
+		return (1);
+	}
+	while (read != -1)
+	{
+		printf("%s", line);
+		line[strcspn(line, "\n")] = '\n';
+		token = strtok(line," ");
+		while (token != NULL && cont_argv < 3)
+		{
+			argv[cont_argv] = token;
+			token = strtok(NULL, " ");
+			cont_argv++;
+		}
+		argv[cont_argv] = NULL;
+	}
+	free(line);
 
 	while (1)
 	{
 		child_pid = fork();
-
-		printf("my_shell$");
-		while ((read = getline(&line, &size, stdin)) != -1) 
-		{
-			printf("%s", line);
-			if (execve(read, &size, NULL) == -1)
+		if (child_pid == -1)
+	    	{
+	    		perror("Error on the fork");
+		    	return (1);
+	    	}
+		if (child_pid == 0)
+	    	{
+			if (execve(argv[0], argv, NULL) == -1)
 			{
 				perror("Error:");
 			}
-
 		}
-		free(line);
+		else 
+		{
+			wait(&status);
+		}
+
 	}
 	return (0); 
 }
