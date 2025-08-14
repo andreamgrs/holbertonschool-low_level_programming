@@ -25,37 +25,35 @@ int main(void)
 	char *line = NULL;
 	size_t size = 0;
 	ssize_t read;
-	int status, cont_argv = 0;
+	int status, cont_argv;
 	char *argv[3];
 	char *token;
 	pid_t child_pid;
 
 	signal(SIGINT, handled_sigint);
 
-	printf("my_shell$");
-	read = getline(&line, &size, stdin);
-	if (read == -1)
-	{
-		perror("Error:");
-		return (1);
-	}
-	while (read != -1)
-	{
-		printf("%s", line);
-		line[strcspn(line, "\n")] = '\n';
-		token = strtok(line," ");
-		while (token != NULL && cont_argv < 3)
-		{
-			argv[cont_argv] = token;
-			token = strtok(NULL, " ");
-			cont_argv++;
-		}
-		argv[cont_argv] = NULL;
-	}
-	free(line);
-
 	while (1)
 	{
+
+		printf("my_shell$");
+		read = getline(&line, &size, stdin);
+		if (read == -1)
+		{
+			perror("Error:");
+		}
+		while (read != -1)
+		{
+			line[strcspn(line, "\n")] = '\n';
+			token = strtok(line, " ");
+			cont_argv = 0;
+			while (token != NULL && cont_argv < 3)
+			{
+				argv[cont_argv] = token;
+				cont_argv++;
+				token = strtok(NULL, " ");
+			}
+			argv[cont_argv] = NULL;
+		}
 		child_pid = fork();
 		if (child_pid == -1)
 	    	{
@@ -75,5 +73,6 @@ int main(void)
 		}
 
 	}
+	free(line);
 	return (0); 
 }
