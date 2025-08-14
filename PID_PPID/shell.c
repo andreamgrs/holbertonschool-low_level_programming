@@ -41,19 +41,17 @@ int main(void)
 		{
 			perror("Error:");
 		}
-		while (read != -1)
+		line[strcspn(line, "\n")] = '\0';
+		token = strtok(line, " ");
+		cont_argv = 0;
+		while (token != NULL && cont_argv < 3)
 		{
-			line[strcspn(line, "\n")] = '\n';
-			token = strtok(line, " ");
-			cont_argv = 0;
-			while (token != NULL && cont_argv < 3)
-			{
-				argv[cont_argv] = token;
-				cont_argv++;
-				token = strtok(NULL, " ");
-			}
-			argv[cont_argv] = NULL;
+			argv[cont_argv] = token;
+			cont_argv++;
+			token = strtok(NULL, " ");
 		}
+		argv[cont_argv] = NULL;
+
 		child_pid = fork();
 		if (child_pid == -1)
 	    	{
