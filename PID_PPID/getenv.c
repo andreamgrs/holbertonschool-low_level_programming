@@ -23,13 +23,9 @@ char *_getenv(const char *name)
 		list = environ[cont];
 		value = strncmp(list, name, name_len);
 
-		if(value == 0)
+		if(value == 0 && list[name_len] == '=')
 		{
-			return (&list[name_len + 1]);
-		}
-		else
-		{
-			return (NULL);
+			return (&list[name_len]);
 		}
 	}
 	return (NULL);
@@ -48,7 +44,7 @@ int main(void)
 
     	if (value != NULL)
 	{
-		printf("PATH: %s\n", value);
+		printf("PATH%s\n", value);
 	}
 	else
 	{
