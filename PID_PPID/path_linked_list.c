@@ -3,17 +3,15 @@
 #include <string.h>
 #include <stdio.h>
 /**
- * struct list_s - singly linked list
- * @str: string - (malloc'ed string)
- * @len: length of the string
+ * struct nodes - singly linked list
+ * @token: string dir from PATH 
  * @next: points to the next node
  *
- * Description: singly linked list node structure
  */
 typedef struct nodes
 {
 	char *token;
-	struct node *next;
+	struct nodes *next;
 } node;
 
 size_t print_list(node *h)
@@ -41,14 +39,27 @@ size_t print_list(node *h)
 node *add_node(node **head, char *token)
 {
 	node *new_node = malloc(sizeof(node));
+	node *tmp;
 
 	if (new_node == NULL)
 	{
 		return (NULL);
 	}
 	new_node->token = token;
-	new_node->next = *head;
-	*head = new_node;
+	new_node->next = NULL;
+	if (*head == NULL)
+	{
+		*head = new_node;
+	}
+	else
+	{
+		tmp = *head;
+		while (tmp->next != NULL)
+		{
+			tmp = tmp->next;
+		}
+		tmp->next = new_node;
+	}
 
 	return (new_node);
 }
@@ -64,8 +75,8 @@ int main(void)
 	while (token != NULL && value != NULL)
 	{
 		add_node(&head, token);
-		print_list(head);
 		token = strtok(NULL, ":");
 	}
+	print_list(head);
 	return (0);
 }
