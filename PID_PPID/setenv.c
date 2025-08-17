@@ -39,11 +39,11 @@ char *_getenv(const char *name)
  */
 int _setenv(const char *name, const char *value, int overwrite)
 {
-	int length_total;
+	size_t length_total;
 	char *new_p; /*ptr to a newly allocated space in mem*/
 	char *original_value = _getenv(name);
 
-	if (name == NULL || *name == "" || strchr(name, '='))
+	if (name == NULL || *name == '\0' || strchr(name, '='))
 	{
 		return (-1);
 	}
@@ -79,9 +79,9 @@ int main(void)
 
 	if (value != NULL)
 	{
-		printf("Original %s is: %s\n", name, value);
+		printf("Original %s%s\n", name, value);
 		_setenv(name, "/tmp", 1);
-		printf("New %s is: %s\n", name, _getenv(name));
+		printf("New %s%s\n", name, _getenv(name));
 	}
 	else
 	{
