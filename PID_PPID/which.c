@@ -49,15 +49,14 @@ int main(void)
 	char *token = strtok(value_copy, ":");
 	char *command = "ls";
 	char full_path[1024];
-	int flag_find = 0;
 
 	while (token != NULL && value_copy != NULL)
 	{
 		snprintf(full_path, sizeof(full_path), "%s/%s", token, command);
-		if (access(full_path, X_OK) == 0 && flag_find == 0)
+		if (access(full_path, X_OK) == 0)
 		{
 			printf("Found %s in: %s\n", command, full_path);
-			flag_find = 1;
+			break;
 		}
 		token = strtok(NULL, ":");
 	}
