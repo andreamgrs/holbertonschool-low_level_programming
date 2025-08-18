@@ -2,8 +2,6 @@
 
 This repository contains standalone programs and functions that demonstrate key components of a Unix-like shell. Each file focuses on a specific concept or system call.
 
----
-
 ## 🔧 Programs & Functions
 
 | File | Description |
