@@ -40,7 +40,9 @@ int main(void)
 		read = getline(&line, &size, stdin);
 		if (read == -1)
 		{
-			perror("Error");
+			free(line);
+			printf("\n");
+			exit(0);
 		}
 		line[strcspn(line, "\n")] = '\0';
 		token = strtok(line, " ");
