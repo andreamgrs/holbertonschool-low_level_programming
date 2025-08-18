@@ -17,7 +17,6 @@
  */
 void handled_sigint(int sig)
 {
-	printf("\n");
 	exit(0);
 }
 
@@ -35,13 +34,14 @@ int main(void)
 
 	while (1)
 	{
-
-		printf("#cisfun$");
+		if (isatty(STDIN_FILENO))
+		{
+			printf("#cisfun$");
+		}
 		read = getline(&line, &size, stdin);
 		if (read == -1)
 		{
 			free(line);
-			printf("\n");
 			exit(0);
 		}
 		line[strcspn(line, "\n")] = '\0';
