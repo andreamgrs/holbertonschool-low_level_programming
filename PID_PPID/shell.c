@@ -17,6 +17,7 @@
  */
 void handled_sigint(int sig)
 {
+	printf("\n");
 	exit(0);
 }
 
